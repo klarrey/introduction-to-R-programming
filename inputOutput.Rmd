@@ -1,0 +1,37 @@
+---
+title: "Input/Output and String"
+author: "Enoch Larrey"
+date: "9/27/2022"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Input and output in R
+# Exercise 1
+
+```{r}
+iris_df <- read.table("iris.data",header=TRUE, sep = ",")
+iris_dfClassMeans <- aggregate(iris_df[,-5],list(iris_df$class),median)
+iris_dfClassMeans
+write.table(iris_dfClassMeans,file = "exercise1_df",sep = " ",row.names = FALSE)
+```
+
+# String manipulation in R
+# Exercise 1
+
+```{r}
+library(dplyr)
+a = c("Tom Hastings", "Brian Wall", "Sue Klark")
+b = c(T, F, T)
+c = rnorm(3)
+stringdf <- data.frame(a,b,c)
+colnames(stringdf) <- c("Names","Indicator","Measurement")
+
+stringdfNames <- stringdf %>% select(Names)
+stringdfNames <- stringdfNames %>% separate(Names, c('First Name', 'Last Name'))
+stringdfNames
+```
+

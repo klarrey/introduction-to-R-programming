@@ -1,0 +1,20 @@
+---
+title: "Line Graph"
+author: "Enoch Larrey"
+date: "10/18/2022"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+#Line Graph
+
+```{r}
+library(ggplot2)
+ggplot(iris, aes(x=Sepal.Width, y=Petal.Length, colour=Species))+
+  geom_line()+
+  geom_point()
+```
+

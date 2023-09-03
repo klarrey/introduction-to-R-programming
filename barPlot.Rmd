@@ -1,0 +1,36 @@
+---
+title: "Bar plot"
+author: "Enoch Larrey"
+date: "10/21/2022"
+output: word_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+#Load ggplot2 package
+library(ggplot2)
+```
+
+```{r}
+#Data exploration and manipulation
+nrow(Orange)
+head(Orange)
+unique(Orange$Tree)
+tree3 <- subset(Orange, Tree == 3)
+tree5 <- subset(Orange, Tree == 5)
+t3_5 <- rbind(tree3,tree5)
+head(t3_5)
+```
+
+```{r}
+#Generate barplot
+ggplot(t3_5, aes(x=factor(age), y=circumference, fill = Tree)) + 
+  geom_bar(stat="identity", position = "dodge") +
+  scale_fill_manual(values = c("red","blue")) +
+  xlab("Age (Day)") +
+  ylab("Circumference (mm)")
+```
+

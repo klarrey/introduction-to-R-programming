@@ -1,0 +1,56 @@
+---
+title: "Factor"
+author: "Enoch Larrey"
+date: "9/19/2022"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Exercise 1
+
+```{r}
+x = c(1, 2, 3, 3, 5, 3, 2, 4, NA)
+factor(x)
+```
+a
+
+# Exercise 2
+
+```{r}
+x = c(11, 22, 47, 47, 11, 47, 11)
+factor(x, levels=c(11, 22, 47), ordered=TRUE)
+```
+c
+
+# Exercise 3
+
+```{r}
+z <- c("p", "a" , "g", "t", "b")
+z[3] = "b"
+```
+
+c
+
+# Exercise 4
+
+```{r}
+responses <- factor(c("Agree", "Agree", "Strongly Agree", "Disagree", "Agree"))
+factor(responses, levels = c("Strongly Agree", "Agree", "Disagree", "Strongly Disagree"))
+```
+# Exercise 5
+
+```{r}
+R.text <- scan(file = "About R.txt", what ="")
+a <- split(R.text, factor(R.text))
+lapply(names, function(x) which(a==names))
+```
+# Exercise 6
+
+```{r}
+colnames(iris)
+aggregate(iris[-5], list(iris$Species), mean)
+```
+

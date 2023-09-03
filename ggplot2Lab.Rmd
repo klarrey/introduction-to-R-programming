@@ -1,0 +1,26 @@
+---
+title: "Scatter plot"
+author: "Enoch Larrey"
+date: "10/10/2022"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+#Scatter plot
+
+```{r}
+head(mtcars)
+```
+
+```{r}
+library(ggplot2)
+ggplot(mtcars, aes(x=wt, y=mpg, colour=cyl, size=hp)) + 
+  geom_point()+
+  stat_smooth(method=lm, level=0.98, show.legend = FALSE)
+  
+  
+```
+
